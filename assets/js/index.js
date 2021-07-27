@@ -47,11 +47,13 @@ console.table(phones);
 
 for (let i = 0; i < phones.length; i++) {
   if (phones[i].inStock === true) {
-    console.table(`${phones[i].manufacturer} ${phones[i].model} со стоимостью ${phones[i].price} сейчас в наличии`);
-  }
-  else
-  {
-    console.table(`${phones[i].manufacturer} ${phones[i].model} со стоимостью ${phones[i].price} сейчас нет в наличии`);
+    console.table(
+      `${phones[i].manufacturer} ${phones[i].model} со стоимостью ${phones[i].price} сейчас в наличии`
+    );
+  } else {
+    console.table(
+      `${phones[i].manufacturer} ${phones[i].model} со стоимостью ${phones[i].price} сейчас нет в наличии`
+    );
   }
 }
 
@@ -106,8 +108,9 @@ console.table(phonesInStock);
 /*3. Получить массив телефонов для праздничной распродажи (черная пятница и т.д)
 Всем телефонам которые стоят больше 30000 снизить цену на 30%.*/
 
-const phonesForBlackFriday = phones.map(function (phones) {
+const phonesForBlackFriday = phonesInStock.map(function (phones) {
   let setPrice = 0;
+
   if (phones.price > 30000) {
     setPrice = phones.price - (phones.price * 30) / 100;
     phones.price = setPrice;
