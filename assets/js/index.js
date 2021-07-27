@@ -121,3 +121,72 @@ const phonesForBlackFriday = phonesInStock.map(function (phones) {
 });
 console.table(phonesForBlackFriday);
 //===========================================================================
+
+/*advansed*/
+
+/*Отсортировать массив телефонов по цене (от дорогих к дешевым)*/
+
+const phonesSortByPrice = phones.sort(function (a, b) {
+  return b.price - a.price;
+});
+
+console.table(phonesSortByPrice);
+
+//===========================================================================
+
+/*Создать массивы с строками - именами производителей и массив с возможными цветами телефонов.
+Переделать логику генерируемых телефонов чтобы они получали случайного производителя и цвет из списков*/
+
+/*const manufactures = [
+  "Samsung",
+  "Apple",
+  "Huawei",
+  "Meizu",
+  "Nokia",
+  "Sony",
+  "Xiaomi",
+];*/
+
+/*const colors = ["black", "red", "white", "pink", "yellow", "grey", "blue"];*/
+
+function getRandomManufactures(manufactures) {
+  manufactures = [
+    "Samsung",
+    "Apple",
+    "Huawei",
+    "Meizu",
+    "Nokia",
+    "Sony",
+    "Xiaomi",
+  ];
+  for (let i = 0; i < manufactures.length; i++) {
+    return manufactures[getRandomInt(0, manufactures.length)];
+  }
+}
+
+function getRandomColors(colors) {
+  colors = ["black", "red", "white", "pink", "yellow", "grey", "blue"];
+  for (let i = 0; i < colors.length; i++) {
+    return colors[getRandomInt(0, colors.length)];
+  }
+}
+
+function getNewPhones(amount) {
+  const newPhones = [];
+
+  for (let i = 0; i < amount; i++) {
+    newPhones.push(
+      new Phone(
+        `Model ${i}`,
+        getRandomManufactures(),
+        getRandomInt(5000, 50000),
+        getRandomColors(),
+        Math.random() >= 0.5
+      )
+    );
+  }
+  return newPhones;
+}
+
+const newPhones = getNewPhones(50);
+console.table(newPhones);
