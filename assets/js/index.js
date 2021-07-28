@@ -149,6 +149,7 @@ console.table(phonesSortByPrice);
 
 /*const colors = ["black", "red", "white", "pink", "yellow", "grey", "blue"];*/
 
+/*1 вариант*/
 function getRandomManufactures(manufactures) {
   manufactures = [
     "Samsung",
@@ -190,3 +191,42 @@ function getNewPhones(amount) {
 
 const newPhones = getNewPhones(50);
 console.table(newPhones);
+//===========================================================================
+/*2 вариант */
+function getRandomString(array) {
+  for (let i = 0; i < array.length; i++) {
+    return array[getRandomInt(0, array.length)];
+  }
+}
+
+const manufactures = [
+  "Samsung",
+  "Apple",
+  "Huawei",
+  "Meizu",
+  "Nokia",
+  "Sony",
+  "Xiaomi",
+];
+
+const colors = ["black", "red", "white", "pink", "yellow", "grey", "blue"];
+
+function getPhone(amount) {
+  const newPhone = [];
+
+  for (let i = 0; i < amount; i++) {
+    newPhone.push(
+      new Phone(
+        `Model ${i}`,
+        getRandomString(manufactures),
+        getRandomInt(5000, 50000),
+        getRandomString(colors),
+        Math.random() >= 0.5
+      )
+    );
+  }
+  return newPhone;
+}
+
+const phoneArray = getPhone(50);
+console.table(phoneArray);
