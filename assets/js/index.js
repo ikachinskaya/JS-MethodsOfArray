@@ -114,8 +114,6 @@ const phonesForBlackFriday = phonesInStock.map(function (phones) {
   if (phones.price > 30000) {
     setPrice = phones.price - (phones.price * 30) / 100;
     phones.price = setPrice;
-  } else {
-    phones.price = phones.price;
   }
   return phones;
 });
