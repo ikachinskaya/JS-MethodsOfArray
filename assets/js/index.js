@@ -46,7 +46,7 @@ console.table(phones);
 /*Через цикл for*/
 
 for (let i = 0; i < phones.length; i++) {
-  if (phones[i].inStock === true) {
+  if (phones[i].inStock) {
     console.table(
       `${phones[i].manufacturer} ${phones[i].model} со стоимостью ${phones[i].price} сейчас в наличии`
     );
@@ -64,7 +64,7 @@ for (let i = 0; i < phones.length; i++) {
 function callback(phones) {
   let count = 0;
   for (let i = 0; i < phones.length; i++) {
-    if (phones[i].inStock === true) {
+    if (phones[i].inStock) {
       console.table(
         `${phones[i].manufacturer} ${phones[i].model} со стоимостью ${phones[i].price} сейчас в наличии`
       );
@@ -84,7 +84,7 @@ callback(phones);
 /*ForEach*/
 let count = 0;
 phones.forEach(function callback(phones) {
-  if (phones.inStock === true) {
+  if (phones.inStock) {
     console.table(
       `${phones.manufacturer} ${phones.model} со стоимостью ${phones.price} сейчас в наличии`
     );
@@ -100,7 +100,7 @@ console.log(`Сейчас в наличии ${count} телефонов`);
 
 /* 2. Получить массив тех телефонов, которые есть в наличии*/
 const phonesInStock = phones.filter(function (phones) {
-  return phones.inStock === true;
+  return phones.inStock;
 });
 console.table(phonesInStock);
 //===========================================================================
